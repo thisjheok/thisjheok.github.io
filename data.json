@@ -1,0 +1,26 @@
+{
+  "whoIAm1": "I'm a Computer Engineering student at Inha University (B.Eng., 2022-expected 2028) with interests in Edge AI and parallel computing/GPGPU. I focus on building efficient AI systems for on-device environments, including TinyML, embedded machine learning, and model compression techniques such as quantization and pruning. I'm also interested in Simultaneous Localization and Mapping (SLAM)",
+  "whoIAm2": "I'm interested in solo indie game development using Godot.",
+  "project-1": {
+    "title": "Dental Android XR Application",
+    "url": "",
+    "desc": "Developed an Android XR dental app with on-device tooth segmentation using a custom YOLO model optimized for mobile, and reduced inference latency from 186 ms to 18 ms via GPU runtime delegation."
+  },
+  "project-2": {
+    "title": "Inha Pass",
+    "url": "https://play.google.com/store/apps/details?id=com.inha.inha_pass&hl=ko",
+    "desc": "Maintained and enhanced Inha University's official Android app and built the “인하 출입카드” app, achieving 5,000+ downloads and a 4.6 average rating on Google Play."
+  },
+  "project-3": {
+    "title": "Onetablet Data",
+    "url": "",
+    "desc": "Automated preprocessing and data pipelines for public API data on GCP and designed schemas with data quality checks for consistent storage and analytics."
+  },
+  "project-4": {
+    "title": "Incheon Support Center for Foreign Residents",
+    "url": "https://play.google.com/store/apps/details?id=com.swing2app.v3.dbdd88be6bd294b46929b5c558c85da68&hl=ko",
+    "desc": "Built an automated workers' compensation claim PDF generator in Node.js (pdf-lib) with template overlay and Korean font support, and implemented 8-language localization with persisted user preferences."
+  },
+  "essayText": "",
+  "contactText": "jhjang3344@gmail.com"
+}

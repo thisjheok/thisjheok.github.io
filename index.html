@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaehyeok's Personal Home Page</title>
+</head>
+<body>
+    <h2>Jang Jaehyeok</h2>
+        <h3>Who I Am</h3>
+            <p id="whoIAm1"></p>
+            <p id="whoIAm2"></p>
+
+    <h3>Projects</h3>
+        <div id="project-1">
+
+        </div>
+        <div id="project-2">
+
+        </div>
+        <div id="project-3">
+
+        </div>
+        <div id="project-4">
+
+        </div>
+    <h3>Essay</h3>
+        <p id="essay">I'm trying to write essays consistently.</p>
+
+    <h3>Contact</h3>
+        <p id="contact">jhjang3344@gmail.com</p>
+
+    <script>
+        async function loadData() {
+            const res = await fetch("data.json", { cache: "no-store" });
+            if (!res.ok) throw new Error(`Failed to load data.json (${res.status})`);
+            return res.json();
+        }
+
+        function setText(id, value) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.textContent = String(value ?? "");
+        }
+
+        function renderProject(containerId, project) {
+            const el = document.getElementById(containerId);
+            if (!el || !project) return;
+            const titleEl = document.createElement("h4");
+            titleEl.textContent = String(project.title ?? "");
+            if (project.url) {
+                const spacer = document.createTextNode(" ");
+                const a = document.createElement("a");
+                a.href = project.url;
+                a.textContent = "Link";
+                a.target = "_blank";
+                a.rel = "noopener noreferrer";
+                titleEl.appendChild(spacer);
+                titleEl.appendChild(a);
+            }
+            const desc = document.createElement("p");
+            desc.textContent = String(project.desc ?? "");
+            el.replaceChildren(titleEl, desc);
+        }
+
+        (async () => {
+            try {
+                const data = await loadData();
+                for (const [key, value] of Object.entries(data)) {
+                    if (value && typeof value === "object" && !Array.isArray(value)) {
+                        renderProject(key, value);
+                    } else {
+                        setText(key, value);
+                    }
+                }
+            } catch (err) {
+                const who = document.getElementById("whoIAm1");
+                if (who) who.textContent = "Failed to load data.json. Run a local server and refresh.";
+                console.error(err);
+            }
+        })();
+    </script>
+</body>
+</html>
